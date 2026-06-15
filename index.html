@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trastornos del Espectro Autista: Detección, Diagnóstico e Intervención Temprana</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        .dark .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #475569;
+        }
+
+        /* Animations */
+        @keyframes pulse-subtle {
+            0%, 100% { transform: scale(1); opacity: 0.95; }
+            50% { transform: scale(1.03); opacity: 1; }
+        }
+        .pulse-element {
+            animation: pulse-subtle 4s infinite ease-in-out;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 transition-colors duration-300">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-white/80 dark:bg-slate-900/80 border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <span class="p-2 bg-brand-600 text-white rounded-xl shadow-md shadow-brand-500/20">
+                    <i data-lucide="brain-circuit" class="w-6 h-6"></i>
+                </span>
+                <div>
+                    <h1 class="font-extrabold text-sm sm:text-base leading-none text-brand-900 dark:text-white">Portal Guía TEA</h1>
+                    <p class="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400">Detección, Diagnóstico e Intervención Temprana</p>
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-4">
+                <!-- Theme Toggle -->
+                <button onclick="toggleTheme()" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors" aria-label="Cambiar tema">
+                    <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-amber-400"></i>
+                    <i data-lucide="moon" class="w-5 h-5 block dark:hidden text-brand-900"></i>
+                </button>
+                
+                <!-- Download Button -->
+                <button onclick="triggerDownload()" class="hidden md:flex items-center gap-2 px-4 h-10 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm transition-all shadow-lg shadow-brand-600/10 active:scale-95">
+                    <i data-lucide="download" class="w-4 h-4"></i>
+                    <span>Descargar Libro Completo</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative overflow-hidden bg-gradient-to-b from-brand-50 via-white to-slate-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-900 py-12 sm:py-20 transition-colors duration-300">
+        <div class="absolute inset-0 opacity-40 dark:opacity-20 pointer-events-none">
+            <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" stroke-width="1" class="text-slate-200 dark:text-slate-800" />
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid)" />
+            </svg>
+        </div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Text Block -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-100 dark:bg-brand-900/50 text-brand-800 dark:text-brand-300 text-xs font-semibold">
+                        <span class="w-2 h-2 rounded-full bg-brand-600 dark:bg-brand-400 animate-ping"></span>
+                        Guía de Lectura y Consulta Científico-Familiar
+                    </div>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
+                        Trastornos del <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-cyan-500 dark:from-brand-400 dark:to-cyan-300">Espectro Autista</span>
+                    </h2>
+                    <p class="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto lg:mx-0">
+                        Una aproximación rigurosa sobre la detección, diagnóstico e intervención temprana. Basada en el texto fundamental coordinado por el <strong>Dr. Francisco Alcantud Marín</strong>, sintetizando el trabajo de más de 20 especialistas del ámbito clínico y evolutivo.
+                    </p>
+                    <div class="flex flex-wrap gap-4 justify-center lg:justify-start pt-2">
+                        <a href="#temario" class="px-6 py-3 rounded-xl bg-slate-950 dark:bg-white text-white dark:text-slate-950 hover:bg-slate-800 dark:hover:bg-slate-100 font-semibold transition-all shadow-xl shadow-slate-950/10 dark:shadow-white/10 flex items-center gap-2">
+                            <span>Explorar Capítulos</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                        <button onclick="triggerDownload()" class="px-6 py-3 rounded-xl border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800 font-semibold transition-all flex items-center gap-2 text-slate-700 dark:text-slate-200">
+                            <i data-lucide="file-text" class="w-4 h-4"></i>
+                            <span>Descargar PDF</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Book & Cover Visual -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-72 sm:w-80 aspect-[3/4] rounded-2xl shadow-2xl shadow-brand-900/20 dark:shadow-black/50 overflow-hidden group hover:scale-[1.02] transition-transform duration-300">
+                        <!-- Simulated Original Book Cover Background -->
+                        <div class="absolute inset-0 bg-[#aed581] flex flex-col justify-between p-6 select-none">
+                            <div class="flex items-center gap-3">
+                                <div class="w-16 h-16 bg-[#75a47f]/40 flex items-center justify-center rounded-lg border-2 border-dashed border-[#558b2f]">
+                                    <span class="text-[#33691e] font-bold text-lg">TEA</span>
+                                </div>
+                                <div class="text-[#1b5e20] text-xs font-semibold tracking-wider">PSICOLOGÍA</div>
+                            </div>
+
+                            <div class="space-y-4">
+                                <h3 class="text-2xl font-black text-brand-900 leading-none">
+                                    Trastornos del<br>
+                                    <span class="text-3xl text-brand-800 font-extrabold">espectro<br>autista</span>
+                                </h3>
+                                <p class="text-sm font-bold text-slate-800 uppercase tracking-wide">
+                                    Detección, diagnóstico<br>
+                                    e intervención temprana
+                                </p>
+                            </div>
+
+                            <div class="border-t border-brand-900/20 pt-4 flex justify-between items-center text-xs">
+                                <div class="text-[#33691e]">
+                                    <p class="font-extrabold text-[10px]">Coordinador</p>
+                                    <p class="font-black text-brand-900 text-xs">Francisco Alcantud M.</p>
+                                </div>
+                                <span class="font-black text-[#1b5e20]">PIRÁMIDE</span>
+                            </div>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-tr from-black/20 via-transparent to-white/10 pointer-events-none"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CORE INTERACTIVE TEMARIO -->
+    <main id="temario" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        
+        <!-- Interactive Layout Grid with Sticky Sidebar and Reading Section -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            <!-- SIDEBAR: Chapters List -->
+            <aside class="lg:col-span-4 lg:sticky lg:top-24 space-y-4 max-h-[calc(100vh-140px)] overflow-y-auto pr-2 custom-scrollbar">
+                <div class="px-2">
+                    <h3 class="text-xs font-bold tracking-widest text-slate-400 uppercase mb-3">Guía de Capítulos</h3>
+                </div>
+                
+                <nav class="space-y-2" id="chapters-nav">
+                    <!-- Chapter 1 Button -->
+                    <button onclick="selectChapter(1)" id="btn-cap-1" class="w-full text-left p-4 rounded-xl border transition-all flex gap-3 items-start bg-white dark:bg-slate-800 border-brand-500 shadow-md ring-2 ring-brand-500/20 dark:border-brand-500">
+                        <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-brand-100 dark:bg-brand-900 flex items-center justify-center font-bold text-brand-700 dark:text-brand-300">1</span>
+                        <div>
+                            <h4 class="font-bold text-sm text-slate-900 dark:text-white">Del autismo al espectro autista</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 line-clamp-1">Kanner, Asperger, Rivière y teorías psicológicas.</p>
+                        </div>
+                    </button>
+
+                    <!-- Chapter 2 Button -->
+                    <button onclick="selectChapter(2)" id="btn-cap-2" class="w-full text-left p-4 rounded-xl border transition-all flex gap-3 items-start bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-800 hover:border-brand-300">
+                        <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-700 flex items-center justify-center font-bold text-slate-600 dark:text-slate-300">2</span>
+                        <div>
+                            <h4 class="font-bold text-sm text-slate-700 dark:text-slate-300">Bases Biológicas del Espectro</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 line-clamp-1">X Frágil, Angelman, Rett, CNVs y herencia.</p>
+                        </div>
+                    </button>
+
+                    <!-- Chapter 3 Button -->
+                    <button onclick="selectChapter(3)" id="btn-cap-3" class="w-full text-left p-4 rounded-xl border transition-all flex gap-3 items-start bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-800 hover:border-brand-300">
+                        <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-700 flex items-center justify-center font-bold text-slate-600 dark:text-slate-300">3</span>
+                        <div>
+                            <h4 class="font-bold text-sm text-slate-700 dark:text-slate-300">Diagnóstico Precoz y Cribado</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 line-clamp-1">Sistemas de nivel 1 y 2, M-CHAT, STAT y marcadores.</p>
+                        </div>
+                    </button>
+
+                    <!-- Chapter 4 Button -->
+                    <button onclick="selectChapter(4)" id="btn-cap-4" class="w-full text-left p-4 rounded-xl border transition-all flex gap-3 items-start bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-800 hover:border-brand-300">
+                        <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-700 flex items-center justify-center font-bold text-slate-600 dark:text-slate-300">4</span>
+                        <div>
+                            <h4 class="font-bold text-sm text-slate-700 dark:text-slate-300">Perspectiva Neuroevolutiva</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 line-clamp-1">Primeros años de vida, regresión, sinapsis y feedback.</p>
+                        </div>
+                    </button>
+
+                    <!-- Chapter 5 Button -->
+                    <button onclick="selectChapter(5)" id="btn-cap-5" class="w-full text-left p-4 rounded-xl border transition-all flex gap-3 items-start bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-800 hover:border-brand-300">
+                        <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-700 flex items-center justify-center font-bold text-slate-600 dark:text-slate-300">5</span>
+                        <div>
+                            <h4 class="font-bold text-sm text-slate-700 dark:text-slate-300">Buenas Prácticas de Evaluación</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 line-clamp-1">Evaluación diagnóstica íntegra y perfil de sierra.</p>
+                        </div>
+                    </button>
+
+                    <!-- Chapter 6 Button -->
+                    <button onclick="selectChapter(6)" id="btn-cap-6" class="w-full text-left p-4 rounded-xl border transition-all flex gap-3 items-start bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-800 hover:border-brand-300">
+                        <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-700 flex items-center justify-center font-bold text-slate-600 dark:text-slate-300">6</span>
+                        <div>
+                            <h4 class="font-bold text-sm text-slate-700 dark:text-slate-300">Pruebas de Síntomas Especiales</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 line-clamp-1">ADI-R, ADOS-G, ADOS-Toddler y diagnóstico dimensional.</p>
+                        </div>
+                    </button>
+
+                    <!-- Chapter 7 Button -->
+                    <button onclick="selectChapter(7)" id="btn-cap-7" class="w-full text-left p-4 rounded-xl border transition-all flex gap-3 items-start bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-800 hover:border-brand-300">
+                        <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-700 flex items-center justify-center font-bold text-slate-600 dark:text-slate-300">7</span>
+                        <div>
+                            <h4 class="font-bold text-sm text-slate-700 dark:text-slate-300">Diagnóstico Diferencial: TEA vs. TEL</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 line-clamp-1">Trastorno del Lenguaje y Trastornos Pragmáticos.</p>
+                        </div>
+                    </button>
+
+                    <!-- Chapter 8 Button -->
+                    <button onclick="selectChapter(8)" id="btn-cap-8" class="w-full text-left p-4 rounded-xl border transition-all flex gap-3 items-start bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-800 hover:border-brand-300">
+                        <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-700 flex items-center justify-center font-bold text-slate-600 dark:text-slate-300">8</span>
+                        <div>
+                            <h4 class="font-bold text-sm text-slate-700 dark:text-slate-300">Modelos de Intervención Precoz</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 line-clamp-1">TEACCH, Modelo Denver, SCERTS y principios comunes.</p>
+                        </div>
+                    </button>
+
+                    <!-- Chapter 9 Button -->
+                    <button onclick="selectChapter(9)" id="btn-cap-9" class="w-full text-left p-4 rounded-xl border transition-all flex gap-3 items-start bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-800 hover:border-brand-300">
+                        <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-700 flex items-center justify-center font-bold text-slate-600 dark:text-slate-300">9</span>
+                        <div>
+                            <h4 class="font-bold text-sm text-slate-700 dark:text-slate-300">Intervención Centrada en Familia</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 line-clamp-1">El viaje a Holanda, resiliencia y programas Hanen.</p>
+                        </div>
+                    </button>
+
+                    <!-- Chapter 10 Button -->
+                    <button onclick="selectChapter(10)" id="btn-cap-10" class="w-full text-left p-4 rounded-xl border transition-all flex gap-3 items-start bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-800 hover:border-brand-300">
+                        <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-700 flex items-center justify-center font-bold text-slate-600 dark:text-slate-300">10</span>
+                        <div>
+                            <h4 class="font-bold text-sm text-slate-700 dark:text-slate-300">Comunicación y Lenguaje</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 line-clamp-1">Sistemas alternativos, Habla Signada, PECS y tecnología.</p>
+                        </div>
+                    </button>
+
+                    <!-- Chapter 11 Button -->
+                    <button onclick="selectChapter(11)" id="btn-cap-11" class="w-full text-left p-4 rounded-xl border transition-all flex gap-3 items-start bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-800 hover:border-brand-300">
+                        <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-700 flex items-center justify-center font-bold text-slate-600 dark:text-slate-300">11</span>
+                        <div>
+                            <h4 class="font-bold text-sm text-slate-700 dark:text-slate-300">Conductas Desafiantes</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 line-clamp-1">Apoyo Conductual Positivo y el Iceberg de comportamiento.</p>
+                        </div>
+                    </button>
+
+                    <!-- Chapter 12 Button -->
+                    <button onclick="selectChapter(12)" id="btn-cap-12" class="w-full text-left p-4 rounded-xl border transition-all flex gap-3 items-start bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-800 hover:border-brand-300">
+                        <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-700 flex items-center justify-center font-bold text-slate-600 dark:text-slate-300">12</span>
+                        <div>
+                            <h4 class="font-bold text-sm text-slate-700 dark:text-slate-300">Tecnologías en Intervención</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 line-clamp-1">Modelado por video, realidad virtual y aplicaciones móviles.</p>
+                        </div>
+                    </button>
+                </nav>
+            </aside>
+
+            <!-- READING PANEL: Content display area -->
+            <section class="lg:col-span-8 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-10 shadow-sm relative transition-colors duration-300 min-h-[600px]">
+                
+                <!-- dynamic cap header -->
+                <div class="flex justify-between items-center border-b border-slate-100 dark:border-slate-700 pb-6 mb-6">
+                    <div class="flex items-center gap-4">
+                        <span id="reading-num" class="w-12 h-12 rounded-2xl bg-brand-100 dark:bg-brand-900/60 text-brand-700 dark:text-brand-300 flex items-center justify-center font-extrabold text-xl">
+                            1
+                        </span>
+                        <div>
+                            <p class="text-xs font-bold text-brand-600 dark:text-brand-400 uppercase tracking-widest">Capítulo seleccionado</p>
+                            <h3 id="reading-title" class="text-lg sm:text-2xl font-extrabold text-slate-900 dark:text-white">Del autismo infantil precoz al trastorno de espectro autista</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- dynamic cap body content -->
+                <div id="reading-content" class="prose dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 space-y-6">
+                    <!-- Default loaded content for Cap 1 -->
+                    <div class="space-y-4">
+                        <p class="text-base sm:text-lg leading-relaxed first-letter:text-5xl first-letter:font-black first-letter:text-brand-600 dark:first-letter:text-brand-400 first-letter:mr-3 first-letter:float-left">
+                            La primera descripción clínica formal del autismo se remonta a 1943, cuando el psiquiatra austro-estadounidense <strong>Leo Kanner</strong> describe once casos clínicos de niños con un "deseo obsesivo por mantener la invariabilidad del entorno" y un "aislamiento afectivo precoz". Paralelamente, en 1944, el pediatra vienés <strong>Hans Asperger</strong> identifica a un grupo de niños con características similares, pero sin retraso lingüístico o cognitivo significativo.
+                        </p>
+                        
+                        <h4 class="font-extrabold text-slate-900 dark:text-white mt-8 mb-2 flex items-center gap-2 text-base">
+                            <span class="w-1.5 h-6 bg-brand-500 rounded-full"></span> El concepto de Espectro Autista
+                        </h4>
+                        <p>
+                            Gracias al aporte de Lorna Wing y Judith Gould en 1979, el autismo dejó de concebirse como una categoría diagnóstica cerrada y comenzó a comprenderse como un <strong>continuo dimensional</strong>. Este continuo implica que todas las personas con TEA comparten alteraciones en la tríada de dimensiones de interacción social, comunicación y flexibilidad mental, pero varían sustancialmente en la gravedad, el nivel intelectual (cociente intelectual), el grado de desarrollo del lenguaje y los apoyos del entorno.
+                        </p>
+
+                        <!-- Interactive Diagram -->
+                        <div class="my-8 p-6 bg-slate-50 dark:bg-slate-900/50 rounded-2xl border border-slate-200 dark:border-slate-800">
+                            <h5 class="text-sm font-bold text-slate-900 dark:text-white mb-4 text-center">Desarrollo Evolutivo Normal frente a la Aparición del TEA</h5>
+                            <!-- SVG: Timeline of Autism Signs -->
+                            <div class="w-full flex justify-center">
+                                <svg viewBox="0 0 600 220" class="w-full max-w-xl text-slate-600 dark:text-slate-300" xmlns="http://www.w3.org/2000/svg">
+                                    <!-- Timeline Base Line -->
+                                    <line x1="40" y1="120" x2="560" y2="120" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
+                                    <!-- Markers -->
+                                    <circle cx="60" cy="120" r="8" fill="#0ea5e9" />
+                                    <circle cx="200" cy="120" r="8" fill="#0ea5e9" />
+                                    <circle cx="340" cy="120" r="8" fill="#0ea5e9" />
+                                    <circle cx="480" cy="120" r="8" fill="#f43f5e" class="animate-pulse" />
+                                    
+                                    <!-- Timeline Labels -->
+                                    <text x="60" y="150" font-size="11" font-weight="bold" text-anchor="middle" fill="currentColor">0-2 meses</text>
+                                    <text x="200" y="150" font-size="11" font-weight="bold" text-anchor="middle" fill="currentColor">8-9 meses</text>
+                                    <text x="340" y="150" font-size="11" font-weight="bold" text-anchor="middle" fill="currentColor">12 meses</text>
+                                    <text x="480" y="150" font-size="11" font-weight="bold" text-anchor="middle" class="text-rose-500" fill="currentColor">18 meses</text>
+
+                                    <!-- Milestones Texts -->
+                                    <g font-size="9" fill="currentColor" opacity="0.8">
+                                        <text x="60" y="90" text-anchor="middle">Intersubjetividad</text>
+                                        <text x="60" y="102" text-anchor="middle">primaria (miradas)</text>
+
+                                        <text x="200" y="70" text-anchor="middle">Tranquilidad</text>
+                                        <text x="200" y="82" text-anchor="middle">expresiva</text>
+                                        <text x="200" y="94" text-anchor="middle">Intersubjetividad 2ª</text>
+
+                                        <text x="340" y="70" text-anchor="middle">Balbuceo,</text>
+                                        <text x="340" y="82" text-anchor="middle">protolenguaje</text>
+                                        <text x="340" y="94" text-anchor="middle">y cooperación</text>
+
+                                        <text x="480" y="50" font-weight="bold" fill="#f43f5e" text-anchor="middle">Frecuente inicio</text>
+                                        <text x="480" y="62" font-weight="bold" fill="#f43f5e" text-anchor="middle">de sospechas</text>
+                                        <text x="480" y="74" text-anchor="middle">Déficits en juego</text>
+                                        <text x="480" y="86" text-anchor="middle">simbólico y atención</text>
+                                        <text x="480" y="98" text-anchor="middle">conjunta</text>
+                                    </g>
+                                    
+                                    <path d="M 420 40 L 480 30" fill="none" stroke="#f43f5e" stroke-width="2" stroke-dasharray="4" />
+                                    <rect x="420" y="15" width="120" height="20" rx="6" fill="#f43f5e" opacity="0.1" />
+                                    <text x="480" y="28" font-size="9" font-weight="bold" fill="#f43f5e" text-anchor="middle">Sospecha de Familias</text>
+                                </svg>
+                            </div>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-4 text-center">
+                                [Imagen del Desarrollo Evolutivo Normal frente a la Aparición del TEA]
+                            </p>
+                        </div>
+
+                        <h4 class="font-extrabold text-slate-900 dark:text-white mt-8 mb-2 flex items-center gap-2 text-base">
+                            <span class="w-1.5 h-6 bg-brand-500 rounded-full"></span> Teorías Psicológicas Explicativas
+                        </h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                            <div class="p-5 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
+                                <h5 class="font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                                    <i data-lucide="eye" class="w-4 h-4 text-brand-500"></i> Teoría de la Mente (ToM)
+                                </h5>
+                                <p class="text-xs text-slate-600 dark:text-slate-400 mt-2 leading-relaxed">
+                                    Propone un fallo en el mecanismo cognitivo metarrepresentacional para atribuir estados mentales, intenciones y creencias a los demás (experimento clásico de Sally y Ana). Esto conduce a dificultades en empatía y ceguera mental.
+                                </p>
+                            </div>
+                            <div class="p-5 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
+                                <h5 class="font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                                    <i data-lucide="heart" class="w-4 h-4 text-rose-500"></i> Fallos en Intersubjetividad
+                                </h5>
+                                <p class="text-xs text-slate-600 dark:text-slate-400 mt-2 leading-relaxed">
+                                    Enfoques de Hobson y Trevarthen que enfatizan el origen afectivo primario. La carencia en la empatía y la comunicación recíproca impide el desarrollo de relaciones triangulares (bebé-objeto-madre) al final del primer año.
+                                </p>
+                            </div>
+                            <div class="p-5 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
+                                <h5 class="font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                                    <i data-lucide="puzzle" class="w-4 h-4 text-amber-500"></i> Coherencia Central Débil
+                                </h5>
+                                <p class="text-xs text-slate-600 dark:text-slate-400 mt-2 leading-relaxed">
+                                    Uta Frith propone un estilo cognitivo particular enfocado en el procesamiento de detalles locales a expensas de la integración del contexto global. Explica tanto las habilidades extraordinarias como la monotonía de intereses.
+                                </p>
+                            </div>
+                            <div class="p-5 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
+                                <h5 class="font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                                    <i data-lucide="sliders" class="w-4 h-4 text-indigo-500"></i> Disfunción Ejecutiva
+                                </h5>
+                                <p class="text-xs text-slate-600 dark:text-slate-400 mt-2 leading-relaxed">
+                                    Compara los síntomas autistas con las lesiones frontales del cerebro (Damasio y Russell). La rigidez de conducta, perseveración, problemas de planificación y falta de inhibición responden a este fallo.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reading controls footer -->
+                <div class="mt-12 pt-6 border-t border-slate-100 dark:border-slate-700 flex justify-between items-center text-xs">
+                    <button id="prev-btn" onclick="navigateChapter(-1)" class="px-4 py-2 bg-slate-100 dark:bg-slate-900 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-xl font-bold transition-all text-slate-400 cursor-not-allowed" disabled>
+                        Anterior
+                    </button>
+                    <span id="reading-indicator" class="text-slate-500 dark:text-slate-400 font-semibold">1 de 12 Capítulos</span>
+                    <button id="next-btn" onclick="navigateChapter(1)" class="px-4 py-2 bg-slate-100 dark:bg-slate-900 hover:bg-brand-600 hover:text-white dark:hover:bg-slate-800 rounded-xl font-bold transition-all text-slate-700 dark:text-slate-200">
+                        Siguiente
+                    </button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+            <div class="flex justify-center items-center gap-3 text-white">
+                <span class="p-2 bg-brand-600 rounded-xl">
+                    <i data-lucide="heart-handshake" class="w-5 h-5"></i>
+                </span>
+                <span class="font-black text-lg">Hacia un futuro de inclusión real</span>
+            </div>
+            <p class="text-xs max-w-xl mx-auto leading-relaxed text-slate-400">
+                La recopilación de esta información tiene como objetivo guiar y capacitar a las familias en la estimulación temprana en entornos naturales. "Hacer de lo cotidiano un verdadero contexto de aprendizaje".
+            </p>
+            <div class="pt-4 border-t border-slate-800/80 max-w-lg mx-auto flex flex-col sm:flex-row gap-4 justify-between items-center text-[10px]">
+                <p>&copy; 2026 Portal de Divulgación TEA. Todos los derechos reservados.</p>
+                <p>Coordinación Editorial: Ediciones Pirámide</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE SCRIPTS -->
+    <script>
+        // Init Lucide Icons
+        lucide.createIcons();
+
+        // Theme management
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');
+        }
+
+        // Simulating the PDF download
+        function triggerDownload() {
+            const modal = document.createElement('div');
+            modal.className = "fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4";
+            modal.innerHTML = `
+                <div class="bg-white dark:bg-slate-800 rounded-3xl p-6 sm:p-8 max-w-sm w-full text-center space-y-6 shadow-2xl border border-slate-100 dark:border-slate-700">
+                    <div class="w-16 h-16 bg-brand-100 dark:bg-brand-900/60 text-brand-600 dark:text-brand-400 rounded-full flex items-center justify-center mx-auto">
+                        <i data-lucide="file-down" class="w-8 h-8"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-extrabold text-lg text-slate-900 dark:text-white">Descargando libro completo</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-2">
+                            Se está iniciando la descarga del archivo: <br>
+                            <span class="font-bold text-slate-700 dark:text-slate-300 text-[11px] block mt-1">Trastornos_del_espectro_autista_deteccion_diagnstico_e_intervencion.pdf</span>
+                        </p>
+                    </div>
+                    <div class="w-full bg-slate-100 dark:bg-slate-900 h-2 rounded-full overflow-hidden">
+                        <div class="bg-brand-600 h-full w-0 rounded-full transition-all duration-[3000ms] ease-out" id="prog-bar"></div>
+                    </div>
+                    <button onclick="this.parentElement.parentElement.remove()" class="px-5 py-2 bg-slate-100 dark:bg-slate-900 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-xl font-bold text-xs transition-all text-slate-600 dark:text-slate-300">
+                        Cerrar
+                    </button>
+                </div>
+            `;
+            document.body.appendChild(modal);
+            lucide.createIcons();
+            
+            setTimeout(() => {
+                const bar = document.getElementById('prog-bar');
+                if (bar) bar.style.width = '100%';
+            }, 100);
+        }
+
+        // Active state and chapter selection data structure
+        let currentCap = 1;
+
+        const chaptersData = {
+            1: {
+                title: "Del autismo infantil precoz al trastorno de espectro autista",
+                num: 1,
+                content: `
+                    <div class="space-y-4">
+                        <p class="text-base sm:text-lg leading-relaxed first-letter:text-5xl first-letter:font-black first-letter:text-brand-600 dark:first-letter:text-brand-400 first-letter:mr-3 first-letter:float-left">
+                            La primera descripción clínica formal del autismo se remonta a 1943, cuando el psiquiatra austro-estadounidense <strong>Leo Kanner</strong> describe once casos clínicos de niños con un "deseo obsesivo por mantener la invariabilidad del entorno" y un "aislamiento afectivo precoz". Paralelamente, en 1944, el pediatra vienés <strong>Hans Asperger</strong> identifica a un grupo de niños con características similares, pero sin retraso lingüístico o cognitivo significativo.
+                        </p>
+                        
+                        <h4 class="font-extrabold text-slate-900 dark:text-white mt-8 mb-2 flex items-center gap-2 text-base">
+                            <span class="w-1.5 h-6 bg-brand-500 rounded-full"></span> El concepto de Espectro Autista
+                        </h4>
+                        <p>
+                            Gracias al aporte de Lorna Wing y Judith Gould en 1979, el autismo dejó de concebirse como una categoría diagnóstica cerrada y comenzó a comprenderse como un <strong>continuo dimensional</strong>. Este continuo implica que todas las personas con TEA comparten alteraciones en la tríada de dimensiones de interacción social, comunicación y flexibilidad mental, pero varían sustancialmente en la gravedad, el nivel intelectual (cociente intelectual), el grado de desarrollo del lenguaje y los apoyos del entorno.
+                        </p>
+
+                        <!-- Interactive Diagram -->
+                        <div class="my-8 p-6 bg-slate-50 dark:bg-slate-900/50 rounded-2xl border border-slate-200 dark:border-slate-800">
+                            <h5 class="text-sm font-bold text-slate-900 dark:text-white mb-4 text-center">Desarrollo Evolutivo Normal frente a la Aparición del TEA</h5>
+                            <div class="w-full flex justify-center">
+                                <svg viewBox="0 0 600 220" class="w-full max-w-xl text-slate-600 dark:text-slate-300" xmlns="http://www.w3.org/2000/svg">
+                                    <line x1="40" y1="120" x2="560" y2="120" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
+                                    <circle cx="60" cy="120" r="8" fill="#0ea5e9" />
+                                    <circle cx="200" cy="120" r="8" fill="#0ea5e9" />
+                                    <circle cx="340" cy="120" r="8" fill="#0ea5e9" />
+                                    <circle cx="480" cy="120" r="8" fill="#f43f5e" class="animate-pulse" />
+                                    <text x="60" y="150" font-size="11" font-weight="bold" text-anchor="middle" fill="currentColor">0-2 meses</text>
+                                    <text x="200" y="150" font-size="11" font-weight="bold" text-anchor="middle" fill="currentColor">8-9 meses</text>
+                                    <text x="340" y="150" font-size="11" font-weight="bold" text-anchor="middle" fill="currentColor">12 meses</text>
+                                    <text x="480" y="150" font-size="11" font-weight="bold" text-anchor="middle" class="text-rose-500" fill="currentColor">18 meses</text>
+                                    <g font-size="9" fill="currentColor" opacity="0.8">
+                                        <text x="60" y="90" text-anchor="middle">Intersubjetividad</text>
+                                        <text x="60" y="102" text-anchor="middle">primaria (miradas)</text>
+                                        <text x="200" y="70" text-anchor="middle">Tranquilidad</text>
+                                        <text x="200" y="82" text-anchor="middle">expresiva</text>
+                                        <text x="200" y="94" text-anchor="middle">Intersubjetividad 2ª</text>
+                                        <text x="340" y="70" text-anchor="middle">Balbuceo,</text>
+                                        <text x="340" y="82" text-anchor="middle">protolenguaje</text>
+                                        <text x="340" y="94" text-anchor="middle">y cooperación</text>
+                                        <text x="480" y="50" font-weight="bold" fill="#f43f5e" text-anchor="middle">Frecuente inicio</text>
+                                        <text x="480" y="62" font-weight="bold" fill="#f43f5e" text-anchor="middle">de sospechas</text>
+                                        <text x="480" y="74" text-anchor="middle">Déficits en juego</text>
+                                        <text x="480" y="86" text-anchor="middle">simbólico y atención</text>
+                                        <text x="480" y="98" text-anchor="middle">conjunta</text>
+                                    </g>
+                                    <rect x="420" y="15" width="120" height="20" rx="6" fill="#f43f5e" opacity="0.1" />
+                                    <text x="480" y="28" font-size="9" font-weight="bold" fill="#f43f5e" text-anchor="middle">Sospecha de Familias</text>
+                                </svg>
+                            </div>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-4 text-center">[Imagen del Desarrollo Evolutivo Normal frente a la Aparición del TEA]</p>
+                        </div>
+
+                        <h4 class="font-extrabold text-slate-900 dark:text-white mt-8 mb-2 flex items-center gap-2 text-base">
+                            <span class="w-1.5 h-6 bg-brand-500 rounded-full"></span> Teorías Psicológicas Explicativas
+                        </h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                            <div class="p-5 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
+                                <h5 class="font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                                    <i data-lucide="eye" class="w-4 h-4 text-brand-500"></i> Teoría de la Mente (ToM)
+                                </h5>
+                                <p class="text-xs text-slate-600 dark:text-slate-400 mt-2 leading-relaxed">
+                                    Propone un fallo en el mecanismo cognitivo metarrepresentacional para atribuir estados mentales, intenciones y creencias a los demás (experimento clásico de Sally y Ana). Esto conduce a dificultades en empatía y ceguera mental.
+                                </p>
+                            </div>
+                            <div class="p-5 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
+                                <h5 class="font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                                    <i data-lucide="heart" class="w-4 h-4 text-rose-500"></i> Fallos en Intersubjetividad
+                                </h5>
+                                <p class="text-xs text-slate-600 dark:text-slate-400 mt-2 leading-relaxed">
+                                    Enfoques de Hobson y Trevarthen que enfatizan el origen afectivo primario. La carencia en la empatía y la comunicación recíproca impide el desarrollo de relaciones triangulares (bebé-objeto-madre) al final del primer año.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            2: {
+                title: "Bases biológicas de los trastornos del espectro autista",
+                num: 2,
+                content: `
+                    <div class="space-y-4">
+                        <p class="text-base sm:text-lg leading-relaxed first-letter:text-5xl first-letter:font-black first-letter:text-brand-600 dark:first-letter:text-brand-400 first-letter:mr-3 first-letter:float-left">
+                            La concepción de que el autismo es un trastorno del neurodesarrollo con una potente determinación biológica y genética está firmemente asentada en la medicina moderna. Los estudios con gemelos idénticos demuestran que la heredabilidad estimada oscila entre el 60 y el 90 por ciento.
+                        </p>
+
+                        <h4 class="font-extrabold text-slate-900 dark:text-white mt-8 mb-2 flex items-center gap-2 text-base">
+                            <span class="w-1.5 h-6 bg-brand-500 rounded-full"></span> Autismo Sindrómico vs. Idiopático
+                        </h4>
+                        <p>
+                            Se distinguen principalmente dos grupos. El <strong>sindrómico</strong>, asociado a una causa médica identificada (enfermedades cromosómicas o genéticas conocidas), y el <strong>idiopático</strong> (la gran mayoría), donde se asume un modelo poligénico de vulnerabilidad compleja.
+                        </p>
+
+                        <div class="my-6 p-4 bg-slate-100 dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-slate-800">
+                            <h5 class="font-bold text-xs uppercase tracking-wider mb-3 text-slate-900 dark:text-white">Principales Síndromes Relacionados</h5>
+                            <ul class="space-y-2 text-xs text-slate-600 dark:text-slate-300 list-disc list-inside">
+                                <li><strong>Síndrome del Cromosoma X Frágil (SXF):</strong> Mutación por expansión de tripletes CGG en el gen FMR1. Hasta un 30% de los afectados presenta criterios plenos de TEA.</li>
+                                <li><strong>Síndrome de Angelman:</strong> Deleción en la región materna 15q11-q13 (pérdida del gen UBE3A). Cursa con discapacidad profunda, habla nula y risas espasmódicas.</li>
+                                <li><strong>Síndrome de Rett:</strong> Mutaciones de novo en el gen MeCP2 (brazo largo de Xq28). Provoca regresión rápida en el segundo año de vida y estereotipias de "lavado de manos".</li>
+                                <li><strong>Inversión-Duplicación 15q:</strong> Sobreexpresión del alelo materno, provocando autismo casi de manera constante.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Genetic expansion simulation visual (SVG) -->
+                        <div class="p-6 bg-slate-50 dark:bg-slate-900/50 rounded-2xl border border-slate-200 dark:border-slate-800">
+                            <h5 class="text-xs font-bold text-center mb-3 text-slate-900 dark:text-white">Influencia del triplete CGG y metilación en el SXF</h5>
+                            <div class="w-full flex justify-center">
+                                <svg viewBox="0 0 500 140" class="w-full max-w-md text-slate-600 dark:text-slate-300" xmlns="http://www.w3.org/2000/svg">
+                                    <g stroke="currentColor" stroke-width="2" fill="none">
+                                        <!-- Normal gen -->
+                                        <rect x="20" y="30" width="100" height="30" rx="4" />
+                                        <text x="70" y="48" font-size="9" text-anchor="middle" font-weight="bold" fill="currentColor">Gen Normal</text>
+                                        <text x="70" y="75" font-size="8" text-anchor="middle" fill="currentColor">&lt; 45 repeticiones</text>
+
+                                        <!-- Premutación gen -->
+                                        <rect x="180" y="30" width="120" height="30" rx="4" stroke="#eab308" />
+                                        <text x="240" y="48" font-size="9" text-anchor="middle" font-weight="bold" class="text-yellow-500" fill="currentColor">Premutación</text>
+                                        <text x="240" y="75" font-size="8" text-anchor="middle" fill="currentColor">55-200 repeticiones</text>
+
+                                        <!-- Mutación completa -->
+                                        <rect x="360" y="30" width="120" height="30" rx="4" stroke="#f43f5e" />
+                                        <text x="420" y="48" font-size="9" text-anchor="middle" font-weight="bold" class="text-rose-500" fill="currentColor">Mutación Completa</text>
+                                        <text x="420" y="75" font-size="8" text-anchor="middle" fill="currentColor">&gt; 200 repeticiones (Metilación)</text>
+                                    </g>
+                                    <line x1="120" y1="45" x2="180" y2="45" stroke="currentColor" stroke-width="2" stroke-dasharray="4" />
+                                    <line x1="300" y1="45" x2="360" y2="45" stroke="currentColor" stroke-width="2" stroke-dasharray="4" />
+                                </svg>
+                            </div>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 text-center">[Imagen del triplete CGG y metilación en el SXF]</p>
+                        </div>
+                    </div>
+                `
+            },
+            3: {
+                title: "Diagnóstico precoz y sistemas de cribado en los trastornos del espectro autista",
+                num: 3,
+                content: `
+                    <div class="space-y-4">
+                        <p class="text-base sm:text-lg leading-relaxed first-letter:text-5xl first-letter:font-black first-letter:text-brand-600 dark:first-letter:text-brand-400 first-letter:mr-3 first-letter:float-left">
+                            La viabilidad de diagnosticar el autismo con notable fiabilidad en torno a los 2 años ha impulsado la creación de programas de cribado (screening) masivos de nivel 1 (población general) y de nivel 2 (poblaciones con riesgo específico).
+                        </p>
+
+                        <h4 class="font-extrabold text-slate-900 dark:text-white mt-8 mb-2 flex items-center gap-2 text-base">
+                            <span class="w-1.5 h-6 bg-brand-500 rounded-full"></span> Propiedades Psicométricas de las Pruebas de Cribado
+                        </h4>
+                        <p>
+                            Un instrumento de cribado de calidad debe contar con una alta <strong>sensibilidad</strong> (capacidad de identificar correctamente a quienes tienen el trastorno, idealmente &gt; 0,80) y una óptima <strong>especificidad</strong> (capacidad de descartar a los sanos, idealmente de 0,80 a 0,90).
+                        </p>
+
+                        <!-- Biomarkers Table -->
+                        <div class="my-6 overflow-x-auto rounded-xl border border-slate-200 dark:border-slate-800">
+                            <table class="w-full text-left border-collapse text-xs">
+                                <thead class="bg-slate-100 dark:bg-slate-900/60 font-bold">
+                                    <tr>
+                                        <th class="p-3">Biomarcador Sugerido</th>
+                                        <th class="p-3">Método de Análisis</th>
+                                        <th class="p-3">Utilidad en Cribado Precoz</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+                                    <tr>
+                                        <td class="p-3 font-semibold">Hiperserotonemia</td>
+                                        <td class="p-3">Plasma Sanguíneo</td>
+                                        <td class="p-3">Presente en 30% de los casos; marcador biológico de apoyo.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-3 font-semibold">Macrocefalia acelerada</td>
+                                        <td class="p-3">Perímetro Cefálico</td>
+                                        <td class="p-3">Crecimiento cerebral atípico acelerado en el segundo año de vida.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-3 font-semibold">Disfunción en sustancia blanca</td>
+                                        <td class="p-3">Imagen de Tensor de Difusión (DTI)</td>
+                                        <td class="p-3">Trayectorias anormales de conectividad entre los 6 y los 24 meses.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h4 class="font-extrabold text-slate-900 dark:text-white mt-8 mb-2 flex items-center gap-2 text-base">
+                            <span class="w-1.5 h-6 bg-brand-500 rounded-full"></span> Herramientas Clave
+                        </h4>
+                        <ul class="space-y-2 list-disc list-inside">
+                            <li><strong>M-CHAT / M-CHAT-R/F:</strong> Cuestionario de 20 preguntas contestadas por padres, indicado para visitas pediátricas preventivas a partir de los 16-18 meses.</li>
+                            <li><strong>STAT:</strong> Herramienta observacional interactiva de nivel 2 para diferenciar TEA de otros retrasos de desarrollo.</li>
+                        </ul>
+                    </div>
+                `
+            },
+            4: {
+                title: "El autismo. Una perspectiva neuroevolutiva del desarrollo temprano",
+                num: 4,
+                content: `
+                    <div class="space-y-4">
+                        <p class="text-base sm:text-lg leading-relaxed first-letter:text-5xl first-letter:font-black first-letter:text-brand-600 dark:first-letter:text-brand-400 first-letter:mr-3 first-letter:float-left">
+                            La investigación neuroevolutiva demuestra cómo el cerebro y la conducta del niño en riesgo de autismo se van desviando progresivamente del patrón evolutivo típico. Es decir, el autismo emerge de forma gradual.
+                        </p>
+
+                        <h4 class="font-extrabold text-slate-900 dark:text-white mt-8 mb-2 flex items-center gap-2 text-base">
+                            <span class="w-1.5 h-6 bg-brand-500 rounded-full"></span> Modelos de Explicación Epigenética y de Feedback
+                        </h4>
+                        <p>
+                            El modelo de <strong>Feedback Negativo</strong> (Mundy y cols.) sugiere que el cerebro de un bebé promedio nace genéticamente programado con un exceso de conexiones sinápticas provisorias. Estas conexiones se consolidan o eliminan (poda sináptica) por influencia de la estimulación del medio (mecanismo de **Experiencia Expectante**).
+                        </p>
+
+                        <!-- Synaptic Pruning Interactive Representation -->
+                        <div class="my-6 p-6 bg-slate-50 dark:bg-slate-900/50 rounded-2xl border border-slate-200 dark:border-slate-800">
+                            <h5 class="text-xs font-bold text-slate-900 dark:text-white text-center mb-3">Poda Sináptica por Experiencia Social</h5>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-xs text-center">
+                                <div class="p-4 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
+                                    <p class="font-bold text-emerald-500 flex items-center justify-center gap-1">
+                                        <i data-lucide="check-circle" class="w-4 h-4"></i> Desarrollo Típico
+                                    </p>
+                                    <p class="mt-2 text-slate-600 dark:text-slate-400 leading-relaxed">
+                                        Fuerte entrada de estímulos sociales (orientación a caras, atención conjunta) ➔ Conexiones funcionales reforzadas ➔ Poda ordenada ➔ Organización neurológica eficiente.
+                                    </p>
+                                </div>
+                                <div class="p-4 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
+                                    <p class="font-bold text-rose-500 flex items-center justify-center gap-1">
+                                        <i data-lucide="alert-triangle" class="w-4 h-4"></i> Desarrollo Atípico (TEA)
+                                    </p>
+                                    <p class="mt-2 text-slate-600 dark:text-slate-400 leading-relaxed">
+                                        Déficit inicial en la orientación social ➔ Escaso procesamiento de "entradas" sociales ➔ Ausencia de muerte sináptica selectiva ➔ Cerebro difuso y agrandamiento cerebral.
+                                    </p>
+                                </div>
+                            </div>
+                            <p class="text-[10px] text-slate-400 text-center mt-3">[Imagen de la Poda Sináptica por Experiencia Social]</p>
+                        </div>
+
+                        <h4 class="font-extrabold text-slate-900 dark:text-white mt-8 mb-2 flex items-center gap-2 text-base">
+                            <span class="w-1.5 h-6 bg-brand-500 rounded-full"></span> El fenómeno de la regresión
+                        </h4>
+                        <p>
+                            Aproximadamente el 20-30% de las familias informan que sus hijos experimentan una <strong>regresión o pérdida</strong> de habilidades lingüísticas y socio-comunicativas previamente adquiridas en el segundo año de vida (media de 19 meses). Este hito clínico coincide con trayectorias atípicas en el volumen de la sustancia blanca frontal.
+                        </p>
+                    </div>
+                `
+            },
+            5: {
+                title: "Buenas prácticas en la evaluación y diagnóstico de personas con trastorno del espectro de autismo",
+                num: 5,
+                content: `
+                    <div class="space-y-4">
+                        <p class="text-base sm:text-lg leading-relaxed first-letter:text-5xl first-letter:font-black first-letter:text-brand-600 dark:first-letter:text-brand-400 first-letter:mr-3 first-letter:float-left">
+                            Una evaluación diagnóstica de calidad debe tener un carácter multidisciplinar y centrarse en definir el perfil completo de competencias de la persona (puntos fuertes y débiles), huyendo de la mera etiquetación descriptiva.
+                        </p>
+
+                        <h4 class="font-extrabold text-slate-900 dark:text-white mt-8 mb-2 flex items-center gap-2 text-base">
+                            <span class="w-1.5 h-6 bg-brand-500 rounded-full"></span> El perfil de picos y valles (Perfil en sierra)
+                        </h4>
+                        <p>
+                            Las personas con TEA muestran una gran asimetría entre capacidades cognitivas. Destacan comúnmente en la solución de problemas visuales y visoespaciales (picos) mientras que muestran mayores limitaciones en tareas que exigen memoria de trabajo auditivo-verbal y procesamiento secuencial (valles).
+                        </p>
+
+                        <!-- Serrated Profile Interactive SVG -->
+                        <div class="my-6 p-6 bg-slate-50 dark:bg-slate-900/50 rounded-2xl border border-slate-200 dark:border-slate-800">
+                            <h5 class="text-xs font-bold text-center mb-3 text-slate-900 dark:text-white">Perfil en Sierra de Competencias Cognitivas</h5>
+                            <div class="w-full flex justify-center">
+                                <svg viewBox="0 0 500 180" class="w-full max-w-md text-slate-600 dark:text-slate-300" xmlns="http://www.w3.org/2000/svg">
+                                    <polyline points="50,140 130,50 210,130 290,40 370,120 450,110" fill="none" stroke="#0ea5e9" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                                    <!-- Nodes -->
+                                    <circle cx="50" cy="140" r="6" fill="#f43f5e" />
+                                    <circle cx="130" cy="50" r="6" fill="#10b981" />
+                                    <circle cx="210" cy="130" r="6" fill="#f43f5e" />
+                                    <circle cx="290" cy="40" r="6" fill="#10b981" />
+                                    <circle cx="370" cy="120" r="6" fill="#f43f5e" />
+                                    <circle cx="450" cy="110" r="6" fill="#3b82f6" />
+
+                                    <!-- Grid lines background -->
+                                    <line x1="40" y1="140" x2="460" y2="140" stroke="currentColor" stroke-width="1" stroke-dasharray="2" opacity="0.3" />
+                                    <line x1="40" y1="90" x2="460" y2="90" stroke="currentColor" stroke-width="1" stroke-dasharray="2" opacity="0.3" />
+                                    <line x1="40" y1="40" x2="460" y2="40" stroke="currentColor" stroke-width="1" stroke-dasharray="2" opacity="0.3" />
+
+                                    <!-- Labels -->
+                                    <g font-size="8" fill="currentColor" opacity="0.8">
+                                        <text x="50" y="160" text-anchor="middle">Memoria verbal</text>
+                                        <text x="130" y="160" text-anchor="middle">Visoespacial</text>
+                                        <text x="210" y="160" text-anchor="middle">Pragmática</text>
+                                        <text x="290" y="160" text-anchor="middle">Análisis cubos</text>
+                                        <text x="370" y="160" text-anchor="middle">Comprensión</text>
+                                        <text x="450" y="160" text-anchor="middle">Atención</text>
+                                    </g>
+                                </svg>
+                            </div>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 text-center">[Imagen de Perfil en Sierra de Competencias Cognitivas]</p>
+                        </div>
+
+                        <h4 class="font-extrabold text-slate-900 dark:text-white mt-8 mb-2 flex items-center gap-2 text-base">
+                            <span class="w-1.5 h-6 bg-brand-500 rounded-full"></span> Componentes de una Evaluación Integral
+                        </h4>
+                        <ol class="space-y-2 list-decimal list-inside text-sm">
+                            <li><strong>Historia Clínica del Desarrollo:</strong> Recoger pautas pre y perinatales, hitos evolutivos tempranos y primeras preocupaciones de los padres.</li>
+                            <li><strong>Capacidad Intelectual Directa:</strong> Uso de pruebas no verbales (Merrill-Palmer-R, Leiter-R, o escalas Wechsler) para evitar sesgos provocados por déficits en el lenguaje.</li>
+                            <li><strong>Habilidades Adaptativas:</strong> Escalas Vineland-II o ABAS para determinar la funcionalidad de los aprendizajes en la vida cotidiana.</li>
+                        </ol>
+                    </div>
+                `
+            },
+            6: {
+                title: "Pruebas de evaluación de síntomas de los trastornos del espectro de autismo",
+                num: 6,
+                content: `
+                    <div class="space-y-4">
+                        <p class="text-base sm:text-lg leading-relaxed first-letter:text-5xl first-letter:font-black first-letter:text-brand-600 dark:first-letter:text-brand-400 first-letter:mr-3 first-letter:float-left">
+                            Para formalizar la sospecha clínica de TEA se hace imprescindible la administración de pruebas estandarizadas con un contrastado valor psicométrico, consideradas el "patrón oro" a nivel clínico internacional.
+                        </p>
+
+                        <h4 class="font-extrabold text-slate-900 dark:text-white mt-8 mb-2 flex items-center gap-2 text-base">
+                            <span class="w-1.5 h-6 bg-brand-500 rounded-full"></span> Las Pruebas "Patrón de Oro" (Gold Standard)
+                        </h4>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+                            <div class="p-5 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-slate-800">
+                                <h5 class="font-bold text-slate-900 dark:text-white flex items-center gap-2 text-sm">
+                                    <i data-lucide="users" class="w-4 h-4 text-brand-600"></i> ADI-R (Entrevista Semiestructurada)
+                                </h5>
+                                <p class="text-xs text-slate-600 dark:text-slate-400 mt-2 leading-relaxed">
+                                    Entrevista exhaustiva realizada al cuidador principal (93 ítems). Analiza en detalle el desarrollo socio-comunicativo temprano y los patrones rígidos de conducta entre los 4 y los 5 años (edad de máxima expresividad de los síntomas).
+                                </p>
+                            </div>
+                            <div class="p-5 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-slate-800">
+                                <h5 class="font-bold text-slate-900 dark:text-white flex items-center gap-2 text-sm">
+                                    <i data-lucide="sparkles" class="w-4 h-4 text-emerald-500"></i> ADOS-G / ADOS-2 (Observación Directa)
+                                </h5>
+                                <p class="text-xs text-slate-600 dark:text-slate-400 mt-2 leading-relaxed">
+                                    Escala de observación interactiva mediante la propuesta de actividades estructuradas (módulos según el nivel de lenguaje del niño). Provoca de forma estandarizada conductas socio-afectivas y juegos simbólicos para su codificación.
+                                </p>
+                            </div>
+                        </div>
+
+                        <h4 class="font-extrabold text-slate-900 dark:text-white mt-8 mb-2 flex items-center gap-2 text-base">
+                            <span class="w-1.5 h-6 bg-brand-500 rounded-full"></span> La llegada del ADOS-Toddler
+                        </h4>
+                        <p>
+                            Para dar respuesta a la demanda de detección antes de los 30 meses de vida, surge el módulo **ADOS-Toddler**. Este modifica el algoritmo tradicional (simplificándolo en dos factores: Alteraciones Socio-Afectivas y Conducta Restringida) y utiliza actividades menos demandantes que no inhiben la iniciativa de los más pequeños.
+                        </p>
+                    </div>
+                `
+            },
+            7: {
+                title: "Diagnóstico diferencial: TEA versus TEL",
+                num: 7,
+                content: `
+                    <div class="space-y-4">
+                        <p class="text-base sm:text-lg leading-relaxed first-letter:text-5xl first-letter:font-black first-letter:text-brand-600 dark:first-letter:text-brand-400 first-letter:mr-3 first-letter:float-left">
+                            La relación y deslinde entre los Trastornos Específicos del Lenguaje (TEL) y los Trastornos del Espectro Autista (TEA) ha protagonizado uno de los debates más intensos de la psicología infantil.
+                        </p>
+
+                        <h4 class="font-extrabold text-slate-900 dark:text-white mt-8 mb-2 flex items-center gap-2 text-base">
+                            <span class="w-1.5 h-6 bg-brand-500 rounded-full"></span> El continuo pragmático del lenguaje
+                        </h4>
+                        <p>
+                            Clásicamente, el TEL se caracterizaba por presentar fallos estructurales (fonológicos o morfosintácticos) en un niño con sociabilidad conservada. En cambio, el autismo afectaba radicalmente a la pragmática y el uso social del lenguaje. Sin embargo, la aparición de cuadros a caballo, denominados <strong>Trastornos Semántico-Pragmáticos</strong> (o Trastornos de la Comunicación Social), forzaron la flexibilización de estas fronteras categoriales.
+                        </p>
+
+                        <!-- Venn Diagram showing intersection -->
+                        <div class="my-6 p-6 bg-slate-50 dark:bg-slate-900/50 rounded-2xl border border-slate-200 dark:border-slate-800">
+                            <h5 class="text-xs font-bold text-center mb-3 text-slate-900 dark:text-white">Confluencia de Síntomas: TEL, Trastorno Pragmático y TEA</h5>
+                            <div class="w-full flex justify-center">
+                                <svg viewBox="0 0 500 200" class="w-full max-w-md text-slate-600 dark:text-slate-300" xmlns="http://www.w3.org/2000/svg">
+                                    <!-- TEL circle -->
+                                    <circle cx="180" cy="100" r="70" fill="none" stroke="#0ea5e9" stroke-width="2" />
+                                    <!-- TEA circle -->
+                                    <circle cx="320" cy="100" r="70" fill="none" stroke="#f43f5e" stroke-width="2" />
+                                    
+                                    <!-- Text overlays -->
+                                    <g font-size="10" font-weight="bold" fill="currentColor">
+                                        <text x="140" y="100" text-anchor="middle" class="text-brand-600">TEL</text>
+                                        <text x="140" y="112" font-size="7" font-weight="normal" text-anchor="middle">Déficit estructural</text>
+
+                                        <text x="360" y="100" text-anchor="middle" class="text-rose-500">TEA</text>
+                                        <text x="360" y="112" font-size="7" font-weight="normal" text-anchor="middle">Rigidez + déficits sociales</text>
+
+                                        <text x="250" y="90" text-anchor="middle" fill="#8b5cf6">TPL / TSP</text>
+                                        <text x="250" y="102" font-size="7" font-weight="normal" text-anchor="middle">Trastorno Pragmático</text>
+                                        <text x="250" y="110" font-size="7" font-weight="normal" text-anchor="middle">del Lenguaje</text>
+                                    </g>
+                                </svg>
+                            </div>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 text-center">[Imagen de Confluencia de Síntomas: TEL, Trastorno Pragmático y TEA]</p>
+                        </div>
+
+                        <h4 class="font-extrabold text-slate-900 dark:text-white mt-8 mb-2 flex items-center gap-2 text-base">
+                            <span class="w-1.5 h-6 bg-brand-500 rounded-full"></span> Claves de Diferenciación en Evaluación
+                        </h4>
+                        <p>
+                            Para realizar una correcta diferenciación en el diagnóstico clínico, resulta de gran utilidad el uso del cuestionario **CCC-2 (Children's Communication Checklist)** de Dorothy Bishop, tipificado en niños verbales, que proporciona escalas específicas para medir el uso asimétrico de nexos sintácticos frente a las anomalías en la interacción social.
+                        </p>
+                    </div>
+                `
+            },
+            8: {
+                title: "Modelos y programas de intervención precoz en niños con trastornos del espectro autista y sus familias",
+                num: 8,
+                content: `
+                    <div class="space-y-4">
+                        <p class="text-base sm:text-lg leading-relaxed first-letter:text-5xl first-letter:font-black first-letter:text-brand-600 dark:first-letter:text-brand-400 first-letter:mr-3 first-letter:float-left">
+                            La planificación de la intervención debe sustentarse rigurosamente en la práctica basada en evidencias empíricas consolidadas, huyendo de tratamientos pseudocientíficos o de "terapias milagro".
+                        </p>
+
+                        <h4 class="font-extrabold text-slate-900 dark:text-white mt-8 mb-2 flex items-center gap-2 text-base">
+                            <span class="w-1.5 h-6 bg-brand-500 rounded-full"></span> Los Tres Grandes Programas Globales
+                        </h4>
+                        
+                        <div class="space-y-4 mt-4">
+                            <div class="p-5 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-slate-800">
+                                <h5 class="font-bold text-slate-900 dark:text-white text-sm">1. TEACCH (Enseñanza Estructurada)</h5>
+                                <p class="text-xs text-slate-600 dark:text-slate-400 mt-2 leading-relaxed">
+                                    Desarrollado en la Universidad de Carolina del Norte. Se basa en adaptar físicamente el espacio de la clase y estructurar el tiempo mediante agendas y paneles visuales explicativos. Saca provecho al excelente estilo de procesamiento visual del niño.
+                                </p>
+                            </div>
+                            <div class="p-5 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-slate-800">
+                                <h5 class="font-bold text-slate-900 dark:text-white text-sm">2. Modelo Early Start de Denver (ESDM)</h5>
+                                <p class="text-xs text-slate-600 dark:text-slate-400 mt-2 leading-relaxed">
+                                    Modelo transaccional y de desarrollo conductual de Sally Rogers y Geraldine Dawson. Se basa en la terapia y estimulación a través de rutinas de juego compartidas donde el niño adquiere un rol activo y se fomenta la motivación social.
+                                </p>
+                            </div>
+                            <div class="p-5 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-slate-800">
+                                <h5 class="font-bold text-slate-900 dark:text-white text-sm">3. SCERTS (Soporte Transaccional)</h5>
+                                <p class="text-xs text-slate-600 dark:text-slate-400 mt-2 leading-relaxed">
+                                    Enfoque centrado en tres pilares fundamentales: Comunicación Social (atención conjunta y símbolos), Regulación Emocional y Soporte Transaccional (adaptaciones interpersonales).
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            9: {
+                title: "Intervención temprana en familias con niños con trastornos del espectro autista",
+                num: 9,
+                content: `
+                    <div class="space-y-4">
+                        <p class="text-base sm:text-lg leading-relaxed first-letter:text-5xl first-letter:font-black first-letter:text-brand-600 dark:first-letter:text-brand-400 first-letter:mr-3 first-letter:float-left">
+                            La revelación del diagnóstico representa para la inmensa mayoría de las familias un impacto contundente. El famoso texto "Bienvenidos a Holanda" de Emily Perl Kingsley ilustra de forma magnífica este proceso de ajuste mental y emocional.
+                        </p>
+
+                        <h4 class="font-extrabold text-slate-900 dark:text-white mt-8 mb-2 flex items-center gap-2 text-base">
+                            <span class="w-1.5 h-6 bg-brand-500 rounded-full"></span> El Viaje a "Holanda"
+                        </h4>
+                        <p class="italic border-l-4 border-brand-500 pl-4 py-2 text-slate-600 dark:text-slate-400 text-sm">
+                            "Cuando vas a tener un bebé, es como planear un viaje de vacaciones a Italia... Compras guías y haces planes maravillosos. Pero tras aterrizar, la azafata anuncia: Bienvenidos a Holanda... Tienes que comprar nuevas guías, aprender un idioma diferente. No es un lugar horrible, es solo un lugar distinto... Pero si gastas tu vida lamentando no haber llegado a Italia, nunca estarás libre para gozar de Holanda".
+                        </p>
+
+                        <h4 class="font-extrabold text-slate-900 dark:text-white mt-8 mb-2 flex items-center gap-2 text-base">
+                            <span class="w-1.5 h-6 bg-brand-500 rounded-full"></span> Prácticas Centradas en la Familia
+                        </h4>
+                        <p>
+                            El modelo de intervención tradicional, centrado en el terapeuta en un despacho cerrado, ha dado paso a las prácticas centradas en la familia y desarrolladas en <strong>entornos naturales</strong>. El terapeuta actúa como facilitador para que la familia adquiera una "crianza especializada", aprovechando las rutinas del día a día para la comunicación y el juego.
+                        </p>
+
+                        <div class="my-6 p-4 bg-amber-50 dark:bg-amber-950/20 rounded-xl border border-amber-200 dark:border-amber-900/50 text-xs text-amber-800 dark:text-amber-300">
+                            <strong>El valor de la Resiliencia:</strong> Definida como la capacidad de las personas de recuperarse ante la presión de la vida, enriquecida por la superación y el crecimiento personal durante ese trayecto.
+                        </div>
+                    </div>
+                `
+            },
+            10: {
+                title: "Intervención precoz en comunicación y lenguaje",
+                num: 10,
+                content: `
+                    <div class="space-y-4">
+                        <p class="text-base sm:text-lg leading-relaxed first-letter:text-5xl first-letter:font-black first-letter:text-brand-600 dark:first-letter:text-brand-400 first-letter:mr-3 first-letter:float-left">
+                            Dado que entre un tercio y la mitad de los niños con TEA no desarrollan habla funcional espontánea, la dotación de sistemas facilitadores o aumentativos de comunicación es un objetivo prioritario.
+                        </p>
+
+                        <h4 class="font-extrabold text-slate-900 dark:text-white mt-8 mb-2 flex items-center gap-2 text-base">
+                            <span class="w-1.5 h-6 bg-brand-500 rounded-full"></span> Desmitificar los Sistemas Aumentativos (SCAA)
+                        </h4>
+                        <p>
+                            Persiste la falsa creencia de que si un niño utiliza tarjetas, pictogramas o signos, dejará de esforzarse por hablar. La investigación empírica demuestra precisamente lo contrario: el uso de SCAA incrementa la motivación comunicativa y actúa como un "andamiaje" que suele facilitar la aparición de la lengua oral espontánea.
+                        </p>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+                            <div class="p-5 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-slate-800">
+                                <h5 class="font-bold text-slate-900 dark:text-white text-sm">PECS (Intercambio de Imágenes)</h5>
+                                <p class="text-xs text-slate-600 dark:text-slate-400 mt-2 leading-relaxed">
+                                    Enfoque de base conductual y pragmático de Bondy y Frost. Enseña al niño a aproximarse activamente a un interlocutor y entregarle una tarjeta para obtener un objeto deseado, eliminando la pasividad típica del ensayo discreto clásico.
+                                </p>
+                            </div>
+                            <div class="p-5 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-slate-800">
+                                <h5 class="font-bold text-slate-900 dark:text-white text-sm">Programa de Benson Schaeffer</h5>
+                                <p class="text-xs text-slate-600 dark:text-slate-400 mt-2 leading-relaxed">
+                                    Programa bimodal de "Habla Signada". Se enseña de forma simultánea a emitir el signo gestual manual y la palabra oral mediante técnicas de moldeamiento físico y encadenamiento hacia atrás, asumiendo que los gestos tienen una menor carga cognitiva que la oralidad pura.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            11: {
+                title: "Comprender, prevenir y afrontar las conductas desafiantes en niños con trastornos de espectro autista",
+                num: 11,
+                content: `
+                    <div class="space-y-4">
+                        <p class="text-base sm:text-lg leading-relaxed first-letter:text-5xl first-letter:font-black first-letter:text-brand-600 dark:first-letter:text-brand-400 first-letter:mr-3 first-letter:float-left">
+                            Las conductas desafiantes (rabietas, agresiones, llanto inconsolable o destructividad) constituyen la principal fuente de estrés y aislamiento familiar y escolar.
+                        </p>
+
+                        <h4 class="font-extrabold text-slate-900 dark:text-white mt-8 mb-2 flex items-center gap-2 text-base">
+                            <span class="w-1.5 h-6 bg-brand-500 rounded-full"></span> El Enfoque del Apoyo Conductual Positivo (ACP)
+                        </h4>
+                        <p>
+                            Frente al castigo o las respuestas meramente reactivas, el ACP propone un cambio ético y científico. "El mejor momento para tratar una conducta desafiante es cuando no se está produciendo" (Edward Carr).
+                        </p>
+
+                        <!-- Iceberg Diagram (SVG) -->
+                        <div class="my-8 p-6 bg-slate-50 dark:bg-slate-900/50 rounded-2xl border border-slate-200 dark:border-slate-800">
+                            <h5 class="text-sm font-bold text-slate-900 dark:text-white mb-4 text-center">El Iceberg de las Conductas Desafiantes</h5>
+                            <div class="w-full flex justify-center">
+                                <svg viewBox="0 0 500 240" class="w-full max-w-md text-slate-600 dark:text-slate-300" xmlns="http://www.w3.org/2000/svg">
+                                    <!-- Sea Level Line -->
+                                    <line x1="20" y1="90" x2="480" y2="90" stroke="#0ea5e9" stroke-width="3" stroke-linecap="round" />
+                                    <text x="450" y="80" font-size="8" fill="#0ea5e9" font-weight="bold">NIVEL DEL MAR</text>
+
+                                    <!-- Iceberg Outline -->
+                                    <polygon points="250,20 320,80 340,160 280,220 200,200 170,140 190,80" fill="none" stroke="currentColor" stroke-width="2" />
+                                    
+                                    <!-- Visible Part -->
+                                    <g fill="currentColor">
+                                        <text x="250" y="45" font-weight="bold" fill="#f43f5e" text-anchor="middle" font-size="11">LA CONDUCTA VISIBLE</text>
+                                        <text x="250" y="58" text-anchor="middle" font-size="9" opacity="0.8">Rabietas, agresiones,</text>
+                                        <text x="250" y="70" text-anchor="middle" font-size="9" opacity="0.8">destrucción de objetos, aleteos</text>
+                                    </g>
+
+                                    <!-- Hidden Part -->
+                                    <g fill="currentColor">
+                                        <text x="255" y="115" font-weight="bold" text-anchor="middle" font-size="11" class="text-brand-600">LA PARTE OCULTA (EXPLICACIÓN)</text>
+                                        <text x="255" y="130" text-anchor="middle" font-size="9" opacity="0.8">Dificultades en la comprensión del lenguaje</text>
+                                        <text x="255" y="142" text-anchor="middle" font-size="9" opacity="0.8">Hipersensibilidad sensorial (ruidos, texturas)</text>
+                                        <text x="255" y="154" text-anchor="middle" font-size="9" opacity="0.8">Falta de herramientas para pedir o rechazar</text>
+                                        <text x="255" y="166" text-anchor="middle" font-size="9" opacity="0.8">Entornos desestructurados y caóticos</text>
+                                        <text x="255" y="185" font-weight="bold" fill="#10b981" text-anchor="middle" font-size="10">INTERVENCIÓN PROACTIVA</text>
+                                        <text x="255" y="198" text-anchor="middle" font-size="9" opacity="0.8">Modificar el entorno + Enseñar comunicación funcional</text>
+                                    </g>
+                                </svg>
+                            </div>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-4 text-center">[Imagen de El Iceberg de las Conductas Desafiantes]</p>
+                        </div>
+                    </div>
+                `
+            },
+            12: {
+                title: "Herramientas tecnológicas en la intervención psicoeducativa en niños con trastornos del espectro autista",
+                num: 12,
+                content: `
+                    <div class="space-y-4">
+                        <p class="text-base sm:text-lg leading-relaxed first-letter:text-5xl first-letter:font-black first-letter:text-brand-600 dark:first-letter:text-brand-400 first-letter:mr-3 first-letter:float-left">
+                            La última década ha presenciado un desarrollo tecnológico sin precedentes. Sin embargo, se hace necesario un uso crítico centrado en la persona y no meramente en la espectacularidad de los dispositivos.
+                        </p>
+
+                        <h4 class="font-extrabold text-slate-900 dark:text-white mt-8 mb-2 flex items-center gap-2 text-base">
+                            <span class="w-1.5 h-6 bg-brand-500 rounded-full"></span> Soluciones Tecnológicas de Alto Impacto
+                        </h4>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4 text-xs">
+                            <div class="p-4 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-slate-800">
+                                <h5 class="font-bold text-slate-900 dark:text-white">Modelado por video (VSD)</h5>
+                                <p class="text-slate-600 dark:text-slate-400 mt-2 leading-relaxed">
+                                    El uso de dispositivos portátiles (tabletas, iPods) para reproducir modelos breves de conductas a imitar se ha manifestado altamente efectivo e inmediato.
+                                </p>
+                            </div>
+                            <div class="p-4 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-slate-800">
+                                <h5 class="font-bold text-slate-900 dark:text-white">Realidad Virtual Mixta</h5>
+                                <p class="text-slate-600 dark:text-slate-400 mt-2 leading-relaxed">
+                                    Simulación de entornos reales complejos (supermercados, cruces de calles) donde el usuario practica respuestas de forma segura antes de su generalización real.
+                                </p>
+                            </div>
+                            <div class="p-4 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-slate-800">
+                                <h5 class="font-bold text-slate-900 dark:text-white">Aplicaciones de SCAA</h5>
+                                <p class="text-slate-600 dark:text-slate-400 mt-2 leading-relaxed">
+                                    Programas como e-Mintza, CPA o iParlea que transforman tabletas portátiles en comunicadores de bolsillo accesibles de forma universal.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="my-6 p-4 bg-slate-100 dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                            <strong>Una advertencia metodológica:</strong> Muchos desarrollos de "robots humanoides" (proyecto Aurora, Kaspar) o "avatares 3D" demuestran un excelente poder para capturar la atención inicial, pero se hace precisa más investigación para evidenciar la generalización real de estas conductas más allá de las situaciones de laboratorio controlado.
+                        </div>
+                    </div>
+                `
+            }
+        };
+
+        function selectChapter(capNum) {
+            currentCap = capNum;
+            const data = chaptersData[capNum];
+            
+            // Update Reading Panel
+            document.getElementById('reading-num').innerText = data.num;
+            document.getElementById('reading-title').innerText = data.title;
+            document.getElementById('reading-content').innerHTML = data.content;
+            document.getElementById('reading-indicator').innerText = `${data.num} de 12 Capítulos`;
+            
+            // Re-render lucide icons inside dynamically loaded content
+            lucide.createIcons();
+
+            // Update Navigation Buttons Style
+            const navButtons = document.getElementById('chapters-nav').children;
+            for (let i = 0; i < navButtons.length; i++) {
+                const btn = navButtons[i];
+                const btnNum = i + 1;
+                const spanIndicator = btn.firstElementChild;
+                const h4Title = btn.lastElementChild.firstElementChild;
+
+                if (btnNum === capNum) {
+                    btn.className = "w-full text-left p-4 rounded-xl border transition-all flex gap-3 items-start bg-white dark:bg-slate-800 border-brand-500 shadow-md ring-2 ring-brand-500/20 dark:border-brand-500";
+                    spanIndicator.className = "flex-shrink-0 w-8 h-8 rounded-lg bg-brand-100 dark:bg-brand-900 flex items-center justify-center font-bold text-brand-700 dark:text-brand-300";
+                    h4Title.className = "font-bold text-sm text-slate-900 dark:text-white";
+                } else {
+                    btn.className = "w-full text-left p-4 rounded-xl border transition-all flex gap-3 items-start bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-800 hover:border-brand-300";
+                    spanIndicator.className = "flex-shrink-0 w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-700 flex items-center justify-center font-bold text-slate-600 dark:text-slate-300";
+                    h4Title.className = "font-bold text-sm text-slate-700 dark:text-slate-300";
+                }
+            }
+
+            // Update footer navigators state
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+
+            if (capNum === 1) {
+                prevBtn.disabled = true;
+                prevBtn.className = "px-4 py-2 bg-slate-100 dark:bg-slate-900 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-xl font-bold transition-all text-slate-400 cursor-not-allowed";
+            } else {
+                prevBtn.disabled = false;
+                prevBtn.className = "px-4 py-2 bg-slate-100 dark:bg-slate-900 hover:bg-brand-600 hover:text-white dark:hover:bg-slate-800 rounded-xl font-bold transition-all text-slate-700 dark:text-slate-200";
+            }
+
+            if (capNum === 12) {
+                nextBtn.disabled = true;
+                nextBtn.className = "px-4 py-2 bg-slate-100 dark:bg-slate-900 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-xl font-bold transition-all text-slate-400 cursor-not-allowed";
+            } else {
+                nextBtn.disabled = false;
+                nextBtn.className = "px-4 py-2 bg-slate-100 dark:bg-slate-900 hover:bg-brand-600 hover:text-white dark:hover:bg-slate-800 rounded-xl font-bold transition-all text-slate-700 dark:text-slate-200";
+            }
+
+            // Auto Scroll reading container on mobile
+            if (window.innerWidth < 1024) {
+                document.getElementById('reading-num').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function navigateChapter(direction) {
+            const nextCap = currentCap + direction;
+            if (nextCap >= 1 && nextCap <= 12) {
+                selectChapter(nextCap);
+            }
+        }
+    </script>
+</body>
+</html>
